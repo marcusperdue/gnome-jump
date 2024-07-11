@@ -1,0 +1,195 @@
+body, html {
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000;
+}
+
+#gameContainer {
+    position: relative;
+    min-width: 800px;
+    min-height: 400px;
+    overflow: hidden;
+    border: 2px solid #d4af37;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 800px;
+    height: 400px;
+    background: url('images/background.png') repeat-x bottom;
+    animation: moveBackground 10s linear infinite;
+    z-index: -9999;
+}
+
+.background.second {
+    left: 800px; /* Place the second background right after the first one */
+}
+
+#character {
+    position: absolute;
+    bottom: 40px;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.obstacle {
+    position: absolute;
+    bottom: 50px;  
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.obstacleHitbox {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 100%;
+    background: transparent;
+}
+
+#startScreen  {
+    font-family: 'MedievalSharp', cursive;
+    background-color: #4c1a2e;
+    color: #fff;
+
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    font-size: 2em;
+    z-index: 10;
+}
+.title{
+    font-family: 'MedievalSharp', cursive;
+    background-color: #4c1a2e;
+    color: #fff;
+    
+    background-color: rgba(0, 0, 0, 0.5);
+ 
+    font-size: 2em;
+    z-index: 10;
+}
+#gameOverScreen {
+    font-family: 'MedievalSharp', cursive;
+    background-color: #4c1a2e;
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+ 
+    font-size: 2em;
+    z-index: 10;
+}
+#gameOverScreen h1 {
+    color: rgb(198, 4, 4);
+    text-shadow: -1px -1px 0 ;
+}
+ 
+p{
+    padding: 0;
+    margin: 10px !important;
+}
+#gameOverScreen, #startScreen {
+    display: none;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    display: none;
+}
+
+#startScreen {
+    display: flex;
+}
+
+#controls {
+    margin-top: 20px;
+}
+
+@keyframes moveBackground {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-800px); }
+}
+
+@keyframes moveObstacle {
+    0% { left: 800px; }
+    100% { left: -50px; }
+}
+
+
+ 
+/* Time display */
+#currentTime {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 1.5em;
+    z-index: 20;
+}
+
+
+/* Medieval button styles */
+button {
+    font-family: 'MedievalSharp', cursive;
+    background-color: #4c1a2e;
+    color: #fff;
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #6e1d3b;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #3e1122;
+    transform: scale(0.95);
+}
+
+/* Additional button styles for a more medieval look */
+button {
+    text-shadow: 2px 2px 4px #000000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
